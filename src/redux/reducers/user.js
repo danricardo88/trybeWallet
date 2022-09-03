@@ -1,7 +1,18 @@
+import LOGIN_SUBMIT from '../actions/typeActions';
+
 const INITIAL_STATE = {
-  email: 'aa', // string que armazena o email da pessoa usuária
+  email: '', // string que armazena o email da pessoa usuária
 };
 
-const user = (state = INITIAL_STATE, action) => state;
+const user = (state = INITIAL_STATE, action) => {
+  switch ( action.type ) {
+    case LOGIN_SUBMIT:
+      return {
+        ...state,
+        email: action.email,
+      };
+    default: return state,
+  }
+};
 
 export default user;
