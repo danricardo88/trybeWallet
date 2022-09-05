@@ -1,3 +1,6 @@
-const LOGIN_SUBMIT = 'LOGIN_SUBMIT';
+// import apiData from '../../components/api/apiServiços';
 
-export default LOGIN_SUBMIT;
+export const LOGIN_SUBMIT = 'LOGIN_SUBMIT';
+export const REQ_WALLET = 'REQ_WALLET';
+export const WALLET_ACTIONS = 'WALLET_ACTIONS';
+export const REQ_FAIL = 'REQ_FAIL';
