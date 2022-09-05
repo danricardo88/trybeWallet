@@ -1,5 +1,5 @@
 import React from 'react';
-import WalletForm from '../components/WalletForm';
+// import WalletForm from '../components/WalletForm';
 import Header from '../components/Header';
 
 class Wallet extends React.Component {
@@ -8,7 +8,7 @@ class Wallet extends React.Component {
       // <div>TrybeWallet</div>
       <div>
         <Header />
-        <WalletForm />
+        {/* <WalletForm /> */}
       </div>
     );
   }

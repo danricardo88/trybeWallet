@@ -1,5 +1,6 @@
 // import React, { Component } from 'react';
 // import { connect } from 'react-redux';
+// import PropTypes from 'prop-types';
 // import { fetchReqWallet } from '../redux/actions';
 
 // class WalletForm extends Component {
@@ -25,7 +26,7 @@
 
 //   render() {
 //     const { value, description, currency, paymentMethod, tag } = this.state;
-//     const { currencies } = this.props;
+//     // const { currencies } = this.props;
 //     return (
 //       <div>
 //         <div>WalletForm</div>
@@ -63,9 +64,9 @@
 //               data-testid="currency-input"
 //             >
 //               {
-//                 currencies.map((curr, direction) => (
-//                   <option key={ direction }>{ curr }</option>
-//                 ))
+//                 // currencies.map((corrente, direction) => (
+//                 //   <option key={ direction }>{ corrente }</option>
+//                 // ))
 //               }
 //             </select>
 //             Moeda:
@@ -116,15 +117,15 @@
 //   };
 // }
 
-// function mapDispactchToProps(dispatch) {
+// function mapDispatchToProps(dispatch) {
 //   return {
 //     fetchData: () => dispatch(fetchReqWallet()),
 //   };
 // }
 
 // WalletForm.propTypes = {
-//   fetchData: propTypes.func.isRequired,
+//   fetchData: PropTypes.func.isRequired,
 //   currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
 // };
 
-// export default connect(mapStateToProps, mapDispactchToProps)(WalletForm);
+// export default connect(mapStateToProps, mapDispatchToProps)(WalletForm);

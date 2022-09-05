@@ -1,6 +1,6 @@
 // Coloque aqui suas actions
 // import LOGIN_SUBMIT from './typeActions';
-import apiData from '../../components/api/apiServiços';
+import apiData from './apiServiços';
 import { REQ_FAIL, LOGIN_SUBMIT, REQ_WALLET, WALLET_ACTIONS } from './typeActions';
 
 export default function loginActions(payload) {

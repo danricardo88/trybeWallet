@@ -14,7 +14,7 @@ class Header extends Component {
         </div>
         <div>
           <span data-testid="email-field">
-            {`E-mail: ${email}`}
+            {email}
           </span>
 
           <div>

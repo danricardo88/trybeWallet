@@ -18,8 +18,9 @@ const wallet = (state = INITIAL_STATE, action) => {
   case WALLET_ACTIONS:
     return {
       ...state,
-      currencies: action.currency,
-      testFetchin: false,
+      currencies: Object.keys(action.currencies)
+        .filter((corrente) => corrente !== 'USDT'),
+      // testFetchin: false,
     };
   case REQ_FAIL:
     return {
