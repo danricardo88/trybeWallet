@@ -19,10 +19,15 @@ class WalletForm extends Component {
 
   handleChange = ({ target }) => {
     const { value, name } = target;
-    this.state({
+    this.setState({
       [name]: value,
     });
   };
+
+  // handleChange = ({ target: { name, value } }) => {
+  //   this.state({ [name]: value,
+  //   });
+  // };
 
   render() {
     const { value, description, currency, paymentMethod, tag } = this.state;
@@ -79,13 +84,13 @@ class WalletForm extends Component {
             <select
               name="paymentMethod"
               type="paymentMethod"
-              // value={  }
+              value={ paymentMethod }
               onChange={ this.handleChange }
               data-testid="method-input"
             >
-              <option>Dineheiro</option>
-              <option>Cartão de débito</option>
+              <option>Dinheiro</option>
               <option>Cartão de crédito</option>
+              <option>Cartão de débito</option>
 
             </select>
           </label>
@@ -96,15 +101,15 @@ class WalletForm extends Component {
             <select
               name="tag"
               type="tag"
-              // value={ tag }
+              value={ tag }
               onChange={ this.handleChange }
               data-testid="tag-input"
             >
               <option>Alimentação</option>
-              <option>Saude</option>
               <option>Lazer</option>
               <option>Trabalho</option>
               <option>Transporte</option>
+              <option>Saúde</option>
             </select>
           </label>
         </fieldset>
