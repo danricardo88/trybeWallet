@@ -1,17 +1,17 @@
-import React from 'react';
-// import WalletForm from '../components/WalletForm';
+import React, { Component } from 'react';
+import WalletForm from '../components/WalletForm';
 import Header from '../components/Header';
 
-class Wallet extends React.Component {
+export default class Wallet extends Component {
   render() {
     return (
       // <div>TrybeWallet</div>
       <div>
         <Header />
-        {/* <WalletForm /> */}
+        <WalletForm />
       </div>
     );
   }
 }
 
-export default Wallet;
+//  Wallet;
