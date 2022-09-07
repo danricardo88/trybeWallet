@@ -1,7 +1,12 @@
 // Coloque aqui suas actions
 // import LOGIN_SUBMIT from './typeActions';
 import apiData from './apiServiços';
-import { REQ_FAIL, LOGIN_SUBMIT, REQ_WALLET, WALLET_ACTIONS } from './typeActions';
+import {
+  REQ_FAIL,
+  LOGIN_SUBMIT,
+  REQ_WALLET,
+  WALLET_ACTIONS,
+  EXPENSE_SUB } from './typeActions';
 
 export default function loginActions(payload) {
   return {
@@ -24,6 +29,11 @@ const reqFail = (errorMessage) => ({
   error: errorMessage,
 });
 
+const expensesSub = (expense) => ({
+  type: EXPENSE_SUB,
+  expense,
+});
+
 export const fetchReqWallet = () => async (dispatch) => {
   dispatch(reqWallet());
   try {
@@ -36,3 +46,11 @@ export const fetchReqWallet = () => async (dispatch) => {
   }
 };
 // export default login, fetchReqWallet;
+
+export const fetchExpense = (expense) => async (dispatch) => {
+  const { value, description, currency, method, tag } = expense;
+  const exchangeRates = await apiData();
+  delete exchangeRates.USDT;
+  const expenses = { value, description, currency, method, tag, exchangeRates };
+  dispatch(expensesSub(expenses));
+};

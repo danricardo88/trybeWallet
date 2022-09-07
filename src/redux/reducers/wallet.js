@@ -1,12 +1,17 @@
-import { REQ_WALLET, WALLET_ACTIONS, REQ_FAIL } from '../actions/typeActions';
+import {
+  REQ_WALLET,
+  WALLET_ACTIONS,
+  REQ_FAIL,
+  EXPENSE_SUB } from '../actions/typeActions';
 
 const INITIAL_STATE = {
-  currencies: [], // array de string
-  expenses: [], // array de objetos, com cada objeto tendo as chaves id, value, currency, method, tag, description e exchangeRates
-  editor: false, // valor booleano que indica de uma despesa está sendo editada
-  idToEdit: 0, // valor numérico que armazena o id da despesa que esta sendo editada
+  currencies: [],
+  expenses: [],
+  editor: false,
+  idToEdit: 0,
   error: '',
   testFetchin: false,
+  // total: 0,
 };
 const wallet = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -15,17 +20,36 @@ const wallet = (state = INITIAL_STATE, action) => {
       ...state,
       testFetchin: true,
     };
+
   case WALLET_ACTIONS:
     return {
       ...state,
       currencies: Object.keys(action.currencies)
         .filter((corrente) => corrente !== 'USDT'),
-      // testFetchin: false,
+      // testFetchin: false, <-- descomentar se o cod continuar quebrendo, NÃO É ISSO
     };
+
   case REQ_FAIL:
     return {
       ...state,
       error: action.error,
+    };
+
+  case EXPENSE_SUB:
+    return {
+      ...state,
+      expenses: [
+        ...state.expenses,
+        { ...action.expense,
+          id: state.expenses.length,
+        },
+      ],
+      // total: [
+      //   ...state.expenses, action.expense]
+      //   .reduce((acc, { value, currency, exchangeRates }) => {
+      //     const total = acc + value * exchangeRates[currency].ask;
+      //     return total;
+      //   }, 0),
     };
   default:
     return state;
