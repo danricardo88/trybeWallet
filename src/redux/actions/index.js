@@ -7,7 +7,9 @@ import {
   REQ_WALLET,
   WALLET_ACTIONS,
   EXPENSE_SUB,
-  EXPENSE_DELETE } from './typeActions';
+  EXPENSE_DELETE,
+  EXPENSE_EDIT,
+  EXPENSE_ATT } from './typeActions';
 
 export default function loginActions(payload) {
   return {
@@ -38,6 +40,16 @@ const expensesSub = (expense) => ({
 export const expensesDelete = (id) => ({
   type: EXPENSE_DELETE,
   id,
+});
+
+export const expensesEdit = (id) => ({
+  type: EXPENSE_EDIT,
+  id,
+});
+
+export const expensesAtt = (expenses) => ({
+  type: EXPENSE_ATT,
+  expenses,
 });
 
 export const fetchReqWallet = () => async (dispatch) => {
