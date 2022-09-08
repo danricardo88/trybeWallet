@@ -2,7 +2,8 @@ import {
   REQ_WALLET,
   WALLET_ACTIONS,
   REQ_FAIL,
-  EXPENSE_SUB } from '../actions/typeActions';
+  EXPENSE_SUB,
+  EXPENSE_DELETE } from '../actions/typeActions';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -45,6 +46,12 @@ const wallet = (state = INITIAL_STATE, action) => {
         },
       ],
     };
+  case EXPENSE_DELETE:
+    return {
+      ...state,
+      expenses: state.expenses.filter(({ id }) => id !== action.id),
+    };
+
   default:
     return state;
   }

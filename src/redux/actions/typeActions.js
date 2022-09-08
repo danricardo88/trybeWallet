@@ -5,3 +5,4 @@ export const REQ_WALLET = 'REQ_WALLET';
 export const WALLET_ACTIONS = 'WALLET_ACTIONS';
 export const REQ_FAIL = 'REQ_FAIL';
 export const EXPENSE_SUB = 'EXPENSE_SUB';
+export const EXPENSE_DELETE = 'EXPENSE_DELETE';

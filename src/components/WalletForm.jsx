@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import { fetchReqWallet, fetchExpense } from '../redux/actions';
 import { fetchExpense, fetchReqWallet } from '../redux/actions/index';
 
 const INITIAL_STATE = {
@@ -135,11 +134,6 @@ class WalletForm extends Component {
     );
   }
 }
-// WalletForm.propTypes = {
-//   fetchData: PropTypes.func.isRequired,
-//   expensesData: PropTypes.func.isRequired,
-//   currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
-// };
 
 function mapDispatchToProps(dispatch) {
   return {

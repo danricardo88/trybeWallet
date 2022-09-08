@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { expensesDelete } from '../redux/actions';
 
 class Table extends Component {
+  handleClick = (id) => {
+    const { dispatch } = this.props;
+    dispatch(expensesDelete(id));
+  };
+
   render() {
     const { expenses } = this.props;
     return (
@@ -35,6 +41,15 @@ class Table extends Component {
               * parseFloat(item.value)).toFixed(2)}
               </td>
               <td>Real</td>
+              <td>
+                <button
+                  type="button"
+                  data-testid="delete-btn"
+                  onClick={ () => this.handleClick(item.id) }
+                >
+                  Excluir
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -52,9 +67,11 @@ Table.propTypes = {
   expenses: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
   })),
+  dispatch: PropTypes.func.isRequired,
 };
 
 Table.defaultProps = {
   expenses: [],
 };
+
 export default connect(mapStateToProps)(Table);
