@@ -26,7 +26,7 @@ const wallet = (state = INITIAL_STATE, action) => {
       ...state,
       currencies: Object.keys(action.currencies)
         .filter((corrente) => corrente !== 'USDT'),
-      // testFetchin: false, <-- descomentar se o cod continuar quebrendo, NÃO É ISSO
+      testFetchin: false,
     };
 
   case REQ_FAIL:
@@ -44,12 +44,6 @@ const wallet = (state = INITIAL_STATE, action) => {
           id: state.expenses.length,
         },
       ],
-      // total: [
-      //   ...state.expenses, action.expense]
-      //   .reduce((acc, { value, currency, exchangeRates }) => {
-      //     const total = acc + value * exchangeRates[currency].ask;
-      //     return total;
-      //   }, 0),
     };
   default:
     return state;

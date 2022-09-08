@@ -18,7 +18,6 @@ class Login extends Component {
     const { email, senha } = this.state;
     const minimo = 6;
     const senhaMin = senha.length >= minimo;
-    // const regexDoEmail = regex.test(email); // não sei se vai funcionar peguei no google... olhar isso dps. //  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email); <- regex original, tive que remover as barras \ por causa do lint.
     const regex = '[a-z0-9]+@[a-z]+\\.[a-z]{2,3}';
     const mailFormat = new RegExp(regex);
     const regexDoEmail = mailFormat.test(email);
@@ -26,7 +25,6 @@ class Login extends Component {
     this.setState({
       button: !bum,
     });
-    // return !(regexDoEmail && senhaMin);
   };
 
   onSubmit = (event) => {
